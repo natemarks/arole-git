@@ -1,5 +1,5 @@
 source "amazon-ebs" "ubuntu" {
-  ami_name      = "ansible-test-arole_git-{{timestamp}}"
+  ami_name      = "ansible-test-arole-git-{{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-east-1"
   vpc_id = "vpc_xxx"
@@ -19,7 +19,7 @@ source "amazon-ebs" "ubuntu" {
 }
 
 build {
-  name    = "ansible-test-arole_git"
+  name    = "ansible-test-arole-git"
 
   sources = [
     "source.amazon-ebs.ubuntu"
