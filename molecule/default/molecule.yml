@@ -1,0 +1,35 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint .
+platforms:
+  - name: ubuntu20.04-all
+    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    command_handling: correct
+    privileged: false
+    pre_build_image: true
+  - name: ubuntu20.04-only-ac
+    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    command_handling: correct
+    privileged: false
+    pre_build_image: true
+provisioner:
+  name: ansible
+  # read app_secure_token and user_email from env vars
+  ansible_args:
+    - --extra-vars=app_secure_token=${APP_SECURE_TOKEN}
+    - --extra-vars=user_email=${USER_EMAIL}
+  inventory:
+    links:
+      hosts: hosts
+      group_vars: group_vars/
+      host_vars: host_vars/
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

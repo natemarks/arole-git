@@ -1,0 +1,1 @@
+If you want to run molecule against EC2, you may want to create your own AWS AMIs. You might want to do this because your role requires desktop/gui packages and it's easier to create a desktop environment in an AMi than in docker. It may also be a burden to run a desktop vm locally.

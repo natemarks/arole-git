@@ -1,0 +1,13 @@
+# ignore the python virtual environment we use for project tools like bump2version
+.venv/
+# ignore vscode and hetbrains files
+.idea
+.vscode
+**/*.iml
+# ignore .env file used to source some env vars for local automation
+# like aws credentials
+.env
+
+#python temporary files
+.pytest_cache
+**/__pycache__

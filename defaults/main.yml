@@ -1,0 +1,5 @@
+---
+# defaults file for ansible-role-bash
+local_user: nmarks
+full_name: Nate Marks
+email: npmarks@gmail.com
